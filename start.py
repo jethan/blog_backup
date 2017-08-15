@@ -128,7 +128,7 @@ def handle_photo():
             list_info[-1]['arr']['type'].append('image')
     list_info.reverse()  # 翻转
     final_dict = {"list": list_info}
-    with open("./blog_photos_copy/data.json","w") as fp:
+    with open("../oschina_hexo_server/source/photos/data.json","w") as fp:
         json.dump(final_dict, fp)
 
 def cut_photo():
@@ -168,8 +168,8 @@ def git_operation():
     os.system('git push origin master')
 
 if __name__ == "__main__":
-    '''cut_photo()        # 裁剪图片，裁剪成正方形，去中间部分
-    compress_photo()'''   # 压缩图片，并保存到mini_photos文件夹下
+    cut_photo()        # 裁剪图片，裁剪成正方形，去中间部分
+    compress_photo()   # 压缩图片，并保存到mini_photos文件夹下
     git_operation()    # 提交到github仓库
     handle_photo()     # 将文件处理成json格式，存到博客仓库中
     
